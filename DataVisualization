@@ -1,1 +1,36 @@
+#ANS 198 April 6th 2022
+# dogs <- this is the dog info that was originally 'dogs_full' 
+dogs 
+#Learning ggplot2
+#plot dog weight against the height 
 
+plot(dogs$height,dogs$weight)
+
+#ggplot2 makes it easier to have different colors
+
+#Visualization 
+#install packages on machine (do one time)
+#or Tools -> Install packages 
+install.packages("ggplot2")
+
+#load a package (do every time you restart R)
+library("ggplot2")
+
+# Grammar of graphics
+# Layer 1: Data
+ggplot(data=dogs)
+
+#Layer 2: GEOmetery -shapes to represent data
+ggplot(data=dogs) + geom_point()
+
+#Layer 3: AESthetic - "wires" between geometry and data
+ggplot(data=dogs) + geom_point(aes(x = datadog, y = popularity))
+ggplot(data=dogs) + geom_point(aes(x = height, y= weight))
+
+#equivalently
+ggplot(data=dogs, aes(x = datadog, y = popularity)) + geom_point()
+
+#Add another geom to add breed names to the plot
+ggplot(data=dogs, aes(x = datadog, y = popularity)) +
+  geom_point()+
+  geom_text(aes(label = breed))
